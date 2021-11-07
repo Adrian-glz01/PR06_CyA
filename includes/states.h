@@ -14,6 +14,7 @@
 
 class States {
  public:
+  States();
   States(int, int);
   int get_state(void) const;
   int get_type(void) const;

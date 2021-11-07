@@ -22,7 +22,6 @@ class Dfa {
  public:
   Dfa(std::vector<States>, Alphabet, int, std::set<States>, std::vector<Transitions>);
   bool verificate_chain(const Chain&);
-
  private:
   std::vector<States> states_;
   Alphabet alphabet_;
