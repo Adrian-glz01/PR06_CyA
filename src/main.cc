@@ -51,6 +51,9 @@ int main(int argc, char* argv[]){
     Alphabet alphabet_aux(alphabet_set_vec);
     alphabet = alphabet_aux; // alphabet
   }
+
+  std::ofstream output(file_output);
+
   Dfa automatum(states_list,alphabet,initial_state_number,aceptation_states,transitions);
   std::ifstream chain_file;
   std::string line2;
@@ -58,11 +61,10 @@ int main(int argc, char* argv[]){
   while(getline(chain_file,line2)){
     Chain mystr(line2);
     if(automatum.verificate_chain(mystr)){
-      std::cout << line2 << " accepted\n";
+      output << line2 << " -- Accepted\n";
     } else {
-      std::cout << line2 << " rejected\n";
+      output << line2 << " -- Rejected\n";
     }
-
   }
-  //automatum.verificate_chain();
+  
 }
