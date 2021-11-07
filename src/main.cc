@@ -1,17 +1,5 @@
 #include "../includes/dfa.h"
 
-//std::set<States>,int,  Alphabet, std::set<States>, set<transition> 
-//chain
-
-/*
-4 <- numero de estados
-0 <- initial state
-0 0 2 a 1 b 3    0 0, 1 1, 2 1, 3 0 -> states 
-1 1 2 a 1 b 2    a,b -> alphabet
-2 1 2 a 1 b 3    0 a 1, 0 b 3, 1 a 1, 1 b 2, 2 a 1 .... -> transitions
-3 0 2 a 3 b 3     
-*/
-
 int main(int argc, char* argv[]){
   Usage(argc, argv);
   std::string dfa_input= argv[1];
@@ -24,16 +12,17 @@ int main(int argc, char* argv[]){
 
   int states_number;
   getline(file,line);
-  states_number = std::stoi(line);
+  states_number = std::stoi(line);  //states number 
   
   int initial_state_number;
-  getline(file,line);
-  initial_state_number = std::stoi(line);
+  getline(file,line); 
+  initial_state_number = std::stoi(line); // initial state
 
   std::string mystr;
 
   std::vector<States> states_list;
-  std::set<Transitions> transitions;
+  std::vector<Transitions> transitions;
+  std::set<States> aceptation_states;
   Alphabet alphabet;
 
   for (int i =0; i < states_number; i++){
@@ -43,24 +32,29 @@ int main(int argc, char* argv[]){
     while( ssfile >> mystr ){
       vec.emplace_back(mystr);
     }
-    states_list.emplace_back(States(std::stoi(vec[0]),std::stoi(vec[1])));
+    states_list.emplace_back(States(std::stoi(vec[0]),std::stoi(vec[1]))); // state number and type
 
     int begin = 3;
     int number_of_transitions = stoi(vec[2]);
     std::set<std::string> alphabet_set_vec; 
     for (int j= 0; j < number_of_transitions ; j++){
+      if(std::stoi(vec[1]) == 1){
+        States aceptation_states_obj_aux(std::stoi(vec[0]), std::stoi(vec[1]));
+        aceptation_states.insert(aceptation_states_obj_aux);
+      }
       alphabet_set_vec.insert(vec[begin]);
-      Transitions tr_obj_aux(vec[begin],std::stoi(vec[0]),std::stoi(vec[begin+1]));
-      transitions.insert(tr_obj_aux);
+      Transitions tr_obj_aux(vec[begin],std::stoi(vec[0]),std::stoi(vec[begin+1]));  // transitions 
+      transitions.emplace_back(tr_obj_aux);
       begin += 2;
     }
 
     Alphabet alphabet_aux(alphabet_set_vec);
-    alphabet = alphabet_aux;
+    alphabet = alphabet_aux; // alphabet
   }
-  std::cout << transitions.size() << "\n";
-  for (auto element: transitions){
-    std::cout << element << ",";
+  /*for (auto element: aceptation_states){
+    std::cout << element << " ";
   }
-  std::cout << "\n";
+  std::cout << "\n";*/
+  Dfa automatum(states_list,alphabet,initial_state_number,aceptation_states,transitions);
+  //automatum.verificate_chain();
 }

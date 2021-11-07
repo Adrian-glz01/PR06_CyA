@@ -7,6 +7,8 @@
 
 #include "../includes/states.h"
 
+
+States::States(){}
 /**
  *
  *  @brief  States constructor -> initialize states objects-
