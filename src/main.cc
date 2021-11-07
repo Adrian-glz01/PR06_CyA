@@ -51,10 +51,18 @@ int main(int argc, char* argv[]){
     Alphabet alphabet_aux(alphabet_set_vec);
     alphabet = alphabet_aux; // alphabet
   }
-  /*for (auto element: aceptation_states){
-    std::cout << element << " ";
-  }
-  std::cout << "\n";*/
   Dfa automatum(states_list,alphabet,initial_state_number,aceptation_states,transitions);
+  std::ifstream chain_file;
+  std::string line2;
+  chain_file.open(chain_input);
+  while(getline(chain_file,line2)){
+    Chain mystr(line2);
+    if(automatum.verificate_chain(mystr)){
+      std::cout << line2 << " accepted\n";
+    } else {
+      std::cout << line2 << " rejected\n";
+    }
+
+  }
   //automatum.verificate_chain();
 }
