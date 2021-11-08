@@ -10,6 +10,7 @@
 /**
  *
  *  @brief  Alphabet empty constructor.
+ * 
  */
 Alphabet::Alphabet() {}
 
@@ -31,7 +32,7 @@ std::set<std::string> Alphabet::get_alph() { return alph_; }
 
 /**
  *
- *  @brief  Operator overloading osstream operator.
+ *  @brief  Operator overloading for osstream operator.
  *  @param  ostream& os (output).
  *  @param  const_Alphabet& symbol
  *  @return Write the symbols of the alphabet
@@ -44,4 +45,10 @@ std::ostream&operator<<(std::ostream& os ,  const Alphabet& Kalph_ ){
   return os;
 }
 
+/**
+ *
+ *  @brief  Get the size of a set of symbols inside an alphabet.
+ *  @return alphabet size.
+ *
+ */
 int Alphabet::size(){ return alph_.size(); }

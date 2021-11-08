@@ -7,29 +7,59 @@
 
 #include "../includes/chain.h"
 
+/**
+ *
+ *  @brief  Chain constructor -> initialize chain objects-
+ *  @param  std::string chain.
+ *
+ */
+Chain::Chain( const std::string kStr ){ str_ = kStr; }
 
-Chain::Chain( const std::string kStr ){
-  str_ = kStr;
-}
-  //Setter
-void Chain::set(std::string str) {
-  str_ = str;
-}
+/**
+ *
+ *  @brief  Return the value of a string stored in an object.
+ *  @param  std::string chain.
+ *
+ */
+void Chain::set(std::string str) { str_ = str; }
 
- std::string Chain::get_chain() const {
-  return str_;
-}
+/**
+ *
+ *  @brief  Get the value of a chain object.
+ *  @return string value.
+ *
+ */
+std::string Chain::get_chain() const { return str_; }
 
+/**
+ *
+ *  @brief  Operator overloading for osstream operator.
+ *  @param  ostream& os (output).
+ *  @param  const_Chain& chain.
+ *  @return Print the string.
+ *
+ */
 std::ostream&operator<<(std::ostream& os , const Chain& kChain_){
   os << kChain_.str_;
   return os;
 }
 
-//Metodo size; retorna el tamaño de la cadena.
-int Chain::size() const {
-  return str_.size();
-}
+/**
+ *
+ *  @brief  Get the size of a string.
+ *  @return string size.
+ *
+ */
+int Chain::size() const { return str_.size(); }
 
+/**
+ *
+ *  @brief  Operator overloading for < operator.
+ *  @param  const_Chain& chain1.
+ *  @param  const_Chain& chain2.
+ *  @return True if chain2 is greater than chain1 and false in the other case.
+ *
+ */
 bool operator<(const Chain& chain1, const Chain& chain2){
   return chain1.str_ < chain2.str_;
-}
+} 
