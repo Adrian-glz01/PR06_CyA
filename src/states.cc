@@ -2,7 +2,7 @@
  * @author: Adrián González Expósito
  * Asignatura: Computabilidad y Algoritmia
  * Curso: 2º Ingeniería Informática
- * Práctica 5: Autómatas finitos y reconocimiento de patrones
+ * Práctica 6: Simulacion de DFAs
  */
 
 #include "../includes/states.h"

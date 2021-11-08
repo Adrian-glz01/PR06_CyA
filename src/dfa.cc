@@ -2,7 +2,7 @@
  * @author: Adrián González Expósito
  * Asignatura: Computabilidad y Algoritmia
  * Curso: 2º Ingeniería Informática
- * Práctica 5: Autómatas finitos y reconocimiento de patrones
+ * Práctica 6: Simulacion de DFAs
  */
 
 #include "../includes/dfa.h"
@@ -10,10 +10,11 @@
 /**
  *
  *  @brief  Dfa constructor -> initialize dfa objects-
- *  @param  std::set<States> build states.
- *  @param  std::set<char> build alphabet.
- *  @param  int initial_state build initial state.
- *  @param  std::set<States> aceptation states.
+ *  @param  std::set<States> set states of the DFA.
+ *  @param  Alphabet Buiild the alphabet of the DFA
+ *  @param  int build initial state.
+ *  @param  std::set<States> set of aceptation states.
+ *  @param  std::vector<Transitions> set of transitions that make up the DFA.
  *
  */
 Dfa::Dfa(std::vector<States> states, Alphabet alphabet, int initial_state,
@@ -24,6 +25,14 @@ Dfa::Dfa(std::vector<States> states, Alphabet alphabet, int initial_state,
   transitions_ = transitions;
 }
 
+
+/**
+ *
+ *  @brief  Algorithim that verificate if a chain is accepted or not by the DFA.
+ *  @param  const_Chain& the chain that going to get examinated.
+ *  @return True if the chain is accepted or False if it is rejected.
+ *
+ */
 bool Dfa::verificate_chain(const Chain& mystr){
   int c_state = initial_state_;
   for (int j = 0; j < mystr.size(); j++){

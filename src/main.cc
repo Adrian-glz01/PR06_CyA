@@ -1,3 +1,10 @@
+/**
+ * @author: Adrián González Expósito
+ * Asignatura: Computabilidad y Algoritmia
+ * Curso: 2º Ingeniería Informática
+ * Práctica 6: Simulacion de DFAs
+ */
+
 #include "../includes/dfa.h"
 
 int main(int argc, char* argv[]){
