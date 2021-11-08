@@ -20,7 +20,6 @@ class States {
   int get_type(void) const;
   bool operator<(States const& ) const;
   friend std::ostream&operator<<(std::ostream& ,  const States& );
-  bool aceptation_st(int);
 
  private:
   int states_;
