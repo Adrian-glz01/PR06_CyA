@@ -2,5 +2,10 @@
 a -- Accepted
 b -- Rejected
 aaaa -- Accepted
-abab -- Accepted
+abaa -- Accepted
 bababa -- Rejected
+bb -- Rejected
+dddd -- Rejected
+ba -- Rejected
+abab -- Accepted
+aa -- Accepted

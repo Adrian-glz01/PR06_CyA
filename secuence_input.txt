@@ -2,5 +2,10 @@
 a
 b
 aaaa
-abab
+abaa
 bababa
+bb
+dddd
+ba
+abab
+aa

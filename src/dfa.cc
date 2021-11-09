@@ -37,14 +37,17 @@ bool Dfa::verificate_chain(const Chain& mystr) {
   int c_state = initial_state_;
   for (int j = 0; j < mystr.size(); j++) {
     for (int i = 0; i < (alphabet_.size() * states_.size()); i++) {
+      //std::cout << transitions_[i].get_current_state() << " " << transitions_[i].get_symbol() << " " << transitions_[i].get_next_state() << "\n";
       if (transitions_[i].get_current_state() == c_state) {
         if (transitions_[i].get_symbol() == std::string(1, mystr.get_chain()[i])) {
           c_state = transitions_[i].get_next_state();
         }
       }
     }
+    //std::cout << "------" << std::endl;
   }
   for (auto acceptation_state: acceptation_states_ ) {
+    //std::cout << acceptation_state.get_state() << " = " << c_state << std::endl;
     if (acceptation_state.get_state() == c_state) {
       return true;
     }

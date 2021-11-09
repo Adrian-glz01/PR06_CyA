@@ -9,11 +9,11 @@
 
 const std::string KError_message{
     "Fatal error! The execution of this programm is not correct.\n\
-  Try './{exe_file_name}  --help' to get more information.\n"};
+  Try './{exe_file_name}  --help' to get more information."};
 
 const std::string Khelp_message{
     "The execution of this program must be done with 3 parameters.\n\
-  Correct use example: ./{exe_file_name} [dna_info.dfa] [chain_input_file] [output_file]\n\n"};
+  Correct use example: ./{exe_file_name} [dna_info.dfa] [chain_input_file] [output_file]"};
 
 /**
  *
@@ -61,9 +61,13 @@ bool check_chain(std::string Chain_, std::vector<std::string> alph) {
  */
 bool no_repeating_symbols(std::vector<std::string> symbols_vec) {
   bool returned_value = true;
-  for (int i = 1; i < symbols_vec.size(); i++) {
-    if (symbols_vec[i-1] == symbols_vec[i]){
-      returned_value = false;
+  for (int iterator_i = 0; iterator_i < symbols_vec.size(); iterator_i++) {
+    for ( int iterator_k = 0; iterator_k < symbols_vec.size(); iterator_k++) {
+      if (iterator_i != iterator_k){
+        if (symbols_vec[iterator_i] == symbols_vec[iterator_k]){
+          returned_value = false;
+        }
+      }
     }
   }
   return returned_value;
