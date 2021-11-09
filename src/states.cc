@@ -33,9 +33,7 @@ States::States(int states, int type) {
  *  @return If the sent state is minor than other state.
  *
  */
-bool States::operator<(States const& kState) const {
-  return kState.states_ < states_;
-}
+bool States::operator<(States const& kState) const { return kState.states_ < states_; }
 
 /**
  *
@@ -61,7 +59,7 @@ int States::get_type() const { return type_; }
  *  @return Print the states number and state type.
  *
  */
-std::ostream&operator<<(std::ostream& os ,  const States& kState ){
+std::ostream&operator<<(std::ostream& os ,  const States& kState ) {
   os << kState.get_state() << kState.get_type();
   return os;
 }

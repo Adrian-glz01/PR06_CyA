@@ -25,6 +25,7 @@ class Chain {
   int size() const; 
   friend std::ostream&operator<<(std::ostream& , const Chain&);
   friend bool operator<(const Chain&, const Chain&);
+  char get_chain_symbol(int);
 
  private:
   std::string str_;

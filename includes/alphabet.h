@@ -15,15 +15,18 @@
 #include <sstream>
 #include <set>
 
+#include "symbols.h"
+
 class Alphabet {
  public:
   Alphabet();
-  Alphabet( std::set<std::string> alph );
-  std::set<std::string> get_alph(void);
+  Alphabet(std::set<Symbols>);
+  std::set<Symbols> get_alph(void);
   friend std::ostream&operator<<(std::ostream& ,  const Alphabet& );
   int size(void);
+  
  private:
-  std::set<std::string> alph_;
+  std::set<Symbols> alph_;
 };
 
 #endif

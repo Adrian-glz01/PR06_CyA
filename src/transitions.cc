@@ -35,7 +35,7 @@ Transitions::Transitions(std::string symbol, int current_state, int next_state) 
  *  @return Print transitions of a DFA like -> {symbol,current_state,next_state} >> {a,0,1} >> (q0)---a--->(q1)
  *
  */
-std::ostream&operator<<(std::ostream& os,  const Transitions& kTr){
+std::ostream&operator<<(std::ostream& os,  const Transitions& kTr) {
   os << kTr.symbol_ << " " << kTr.current_state_ << " " << kTr.next_state_; 
   return os;
 }
@@ -47,8 +47,8 @@ std::ostream&operator<<(std::ostream& os,  const Transitions& kTr){
  *  @return iF the symbols and current states of a state are minor than another.
  *
  */
-bool Transitions::operator<(Transitions const& kTr) const{
-  return kTr.symbol_ < this->symbol_ || kTr.current_state_ < this->current_state_  ;
+bool Transitions::operator<(Transitions const& kTr) const {
+  return kTr.symbol_ < this->symbol_ || kTr.current_state_ < this->current_state_;
 }
 
 /**

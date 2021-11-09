@@ -7,6 +7,7 @@
 
 #include "../includes/alphabet.h"
 
+
 /**
  *
  *  @brief  Alphabet empty constructor.
@@ -20,7 +21,7 @@ Alphabet::Alphabet() {}
  *  @param  std::set<std::strings> set of symbols that make up the alphabet.
  *
  */
-Alphabet::Alphabet( std::set<std::string> alph ) { alph_ = alph; }
+Alphabet::Alphabet(std::set<Symbols> alph) { alph_ = alph; }
 
 /**
  *
@@ -28,7 +29,7 @@ Alphabet::Alphabet( std::set<std::string> alph ) { alph_ = alph; }
  *  @return alphabet value.
  *
  */
-std::set<std::string> Alphabet::get_alph() { return alph_; }
+std::set<Symbols> Alphabet::get_alph() { return alph_; }
 
 /**
  *
@@ -38,8 +39,8 @@ std::set<std::string> Alphabet::get_alph() { return alph_; }
  *  @return Write the symbols of the alphabet
  *
  */
-std::ostream&operator<<(std::ostream& os ,  const Alphabet& Kalph_ ){
-  for (auto symbol: Kalph_.alph_ ){
+std::ostream&operator<<(std::ostream& os ,  const Alphabet& Kalph_) {
+  for (auto symbol: Kalph_.alph_ ) {
     os << symbol << " ";
   }
   return os;
@@ -51,4 +52,4 @@ std::ostream&operator<<(std::ostream& os ,  const Alphabet& Kalph_ ){
  *  @return alphabet size.
  *
  */
-int Alphabet::size(){ return alph_.size(); }
+int Alphabet::size() { return alph_.size(); }

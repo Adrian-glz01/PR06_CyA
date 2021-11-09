@@ -13,7 +13,7 @@
  *  @param  std::string chain.
  *
  */
-Chain::Chain( const std::string kStr ){ str_ = kStr; }
+Chain::Chain(const std::string kStr) { str_ = kStr; }
 
 /**
  *
@@ -39,7 +39,7 @@ std::string Chain::get_chain() const { return str_; }
  *  @return Print the string.
  *
  */
-std::ostream&operator<<(std::ostream& os , const Chain& kChain_){
+std::ostream&operator<<(std::ostream& os , const Chain& kChain_) {
   os << kChain_.str_;
   return os;
 }
@@ -60,6 +60,14 @@ int Chain::size() const { return str_.size(); }
  *  @return True if chain2 is greater than chain1 and false in the other case.
  *
  */
-bool operator<(const Chain& chain1, const Chain& chain2){
+bool operator<(const Chain& chain1, const Chain& chain2) {
   return chain1.str_ < chain2.str_;
 } 
+
+/**
+ *
+ *  @brief  Get one determinated symbol of a chain object.
+ *  @return string symbol.
+ *
+ */
+char Chain::get_chain_symbol(int i) { return str_[i]; }

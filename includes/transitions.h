@@ -19,9 +19,9 @@ class Transitions {
   friend std::ostream&operator<<(std::ostream& ,  const Transitions& );
   bool operator==(Transitions const&) const;
   bool operator<(Transitions const& ) const;
-  std::string get_symbol(void) const ;
-  int get_current_state(void) const ;
-  int get_next_state(void) const ;
+  std::string get_symbol(void) const;
+  int get_current_state(void) const;
+  int get_next_state(void) const;
 
  private:
   std::string symbol_;
